@@ -3,10 +3,12 @@ import { RecoilRoot } from 'recoil';
 
 import { Tab, Tabs } from './index';
 
-export default {
+const stories = {
   title: 'Tabs',
   decorators: [(storyFn) => <RecoilRoot>{storyFn()}</RecoilRoot>],
 };
+
+export default stories;
 
 export const firstTabSelectedByDefault = () => {
   return (

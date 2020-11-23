@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { activeIndexAtom, labelArrayAtom } from './tabStates';
@@ -20,7 +20,10 @@ export const Tabs = (props) => {
   const [activeIndex, setActiveIndex] = useRecoilState(activeIndexAtom);
   const setLabelArray = useSetRecoilState(labelArrayAtom);
   const { activeIndex: initialActiveIndex, children } = props;
-  const childrenArray = Array.isArray(children) ? children : [children];
+  const childrenArray = useMemo(
+    () => (Array.isArray(children) ? children : [children]),
+    [children]
+  );
 
   useEffect(() => {
     const tabLabels = childrenArray.map((tab) => tab.props.label);
