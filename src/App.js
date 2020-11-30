@@ -1,88 +1,58 @@
-// import React from 'react';
-
-// function strongPasswordChecker(s) {
-//   function needSpecial(str) {
-//     let special = 3;
-//     if (/\d/.test(str)) {
-//       special--;
-//     }
-//     if (/[a-z]/.test(str)) {
-//       special--;
-//     }
-//     if (/[A-Z]/.test(str)) {
-//       special--;
-//     }
-//     return special;
-//   }
-//   let len = s.length;
-//   if (len === 0) {
-//     return 6;
-//   }
-//   let i = 1;
-//   let same = 1;
-//   let change = 0;
-//   let special = needSpecial(s);
-//   while (i <= len) {
-//     if (same >= 3) {
-//       const diff = Math.floor(same / 3);
-//       change += diff;
-//       special = special - diff;
-//       if (special < 0) {
-//         special = 0;
-//       }
-//       if (len > 20) {
-//         if (same % 3 === 0) {
-//           len--;
-//         }
-//       } else if (len < 6) {
-//         len = Math.min(6, len + diff);
-//       }
-//       same = 1;
-//     } else if (i < len && s[i] === s[i - 1]) {
-//       same++;
-//     }
-//     i++;
-//   }
-//   if (len < 6) {
-//     change += special;
-//     len += special;
-//     change += 6 - len;
-//   } else if (len > 20) {
-//     change += len - 20;
-//     change += special;
-//   } else {
-//     change += special;
-//   }
-//   return change;
-// }
-
-// function addChildren() {
-//   const startTime = new Date();
-//   const result = [];
-//   for (let i = 0; i < 1000000; i++) {
-//     result.push(i);
-//   }
-//   const endTime = new Date();
-//   console.log(endTime - startTime);
-// }
+import React from 'react';
+import { Tab, Tabs } from './components/Tabs';
 
 function App() {
-  // const a = [1, 2, 3, 4].map((_, i) => <div key={i}>{i}</div>);
-  // console.log(a);
-  /*
-	A password is considered strong if below conditions are all met:
-		1. It has at least 6 characters and at most 20 characters.
-		2. It must contain at least one lowercase letter, at least one uppercase letter, and at least one digit.
-		3. It must NOT contain three repeating characters in a row ("...aaa..." is weak, but "...aa...a..." is strong, assuming other conditions are met).
-	Write a function strongPasswordChecker(s), that takes a string s as input, and return the MINIMUM change required to make s a strong password. If s is already strong, return 0.
-	Insertion, deletion or replace of any one character are all considered as one change.
-	*/
-
   return (
-    <select>
-      <option value="apple">Apple</option>
-      <option value="pear">Pear</option>
-    </select>
+    <Tabs>
+      <Tab label="Apple">
+        <p>
+          An apple is an edible fruit produced by an apple tree. Apple trees are
+          cultivated worldwide and are the most widely grown species in the
+          genus Malus. The tree originated in Central Asia, where its wild
+          ancestor, Malus sieversii, is still found today. Apples have been
+          grown for thousands of years in Asia and Europe and were brought to
+          North America by European colonists. Apples have religious and
+          mythological significance in many cultures, including Norse, Greek,
+          and European Christian tradition.
+        </p>
+        <p>
+          Apple trees are large if grown from seed. Generally, apple cultivars
+          are propagated by grafting onto rootstocks, which control the size of
+          the resulting tree. There are more than 7,500 known cultivars of
+          apples, resulting in a range of desired characteristics. Different
+          cultivars are bred for various tastes and use, including cooking,
+          eating raw and cider production. Trees and fruit are prone to a number
+          of fungal, bacterial and pest problems, which can be controlled by a
+          number of organic and non-organic means. In 2010, the fruit's genome
+          was sequenced as part of research on disease control and selective
+          breeding in apple production.
+        </p>
+        <p>The above information is copied from Wikipedia.</p>
+      </Tab>
+      <Tab label="Guava">
+        {[
+          <div key="paragraph1">
+            Guava is a common tropical fruit cultivated in many tropical and
+            subtropical regions. Guava is a small tree in the myrtle family,
+            native to Mexico, Central America, the Caribbean and northern South
+            America. Although related species may also be called guavas, they
+            belong to other species or genera, such as the pineapple guava, Acca
+            sellowiana. In 2016, India was the largest producer of guavas, with
+            41% of the world total.
+          </div>,
+          <br key="space" />,
+          <div key="paragraph2">
+            The above information is copied from Wikipedia.
+          </div>,
+        ]}
+      </Tab>
+      <Tab label="Pear">
+        <ul>
+          <li>Pear is fruit.</li>
+          <li>Pear is sweet.</li>
+        </ul>
+      </Tab>
+    </Tabs>
   );
 }
 
