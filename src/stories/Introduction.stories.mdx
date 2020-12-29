@@ -1,14 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import Code from './assets/code-brackets.svg';
-import Colors from './assets/colors.svg';
-import Comments from './assets/comments.svg';
-import Direction from './assets/direction.svg';
-import Flow from './assets/flow.svg';
-import Plugin from './assets/plugin.svg';
-import Repo from './assets/repo.svg';
-import StackAlt from './assets/stackalt.svg';
 
-<Meta title="Example/Introduction" />
+<Meta title="Introduction" />
 
 <style>{`
   .subheading {
@@ -26,7 +18,6 @@ import StackAlt from './assets/stackalt.svg';
   .link-list {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
     row-gap: 10px;
   }
 
@@ -42,7 +33,6 @@ import StackAlt from './assets/stackalt.svg';
   .link-list {
       display: -ms-grid;
       -ms-grid-columns: 1fr 1fr;
-      -ms-grid-rows: 1fr 1fr;
     }
   }
 
@@ -110,98 +100,47 @@ import StackAlt from './assets/stackalt.svg';
     font-size: 12px;
     display: inline-block;
   }
-
-  
 `}</style>
 
-# Welcome to Storybook
+# React Components
 
-Storybook helps you build UI components in isolation from your app's business logic, data, and context.
-That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
+We have published development guides on how to build React components with the latest technologies.
+[Storybook](https://storybook.js.org/) is used to show examples in these articles.
 
-Browse example stories now by navigating to them in the sidebar.
-View their code in the `src/storybook-examples` directory to learn how they work.
-We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
-
-<div className="subheading">Configure</div>
+<div className="subheading">Related Articles</div>
 
 <div className="link-list">
-  <a className="link-item" href="https://storybook.js.org/docs/react/api/presets" target="_blank">
-    <img src={Plugin} alt="plugin" />
+  <a
+    className="link-item"
+    href="https://medium.com/better-programming/build-advanced-react-input-fields-using-styled-components-and-storybook-js-a231b9b2438#e765-bf98276875df"
+    target="_blank"
+  >
     <span>
-      <strong>Presets for popular tools</strong>
-      Easy setup for TypeScript, SCSS and more.
+      <strong>Advanced React Input Fields</strong>
+      Build Advanced React Input Fields Using Styled Components and Storybook.js
     </span>
   </a>
   <a
     className="link-item"
-    href="https://storybook.js.org/docs/react/configure/webpack"
+    href="https://medium.com/better-programming/build-react-tabs-using-recoil-styled-components-and-storybook-js-4ad534cef007"
     target="_blank"
   >
-    <img src={StackAlt} alt="Build" />
     <span>
-      <strong>Build configuration</strong>
-      How to customize webpack and Babel
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/styling-and-css"
-    target="_blank"
-  >
-    <img src={Colors} alt="colors" />
-    <span>
-      <strong>Styling</strong>
-      How to load and configure CSS libraries
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/get-started/setup#configure-storybook-for-your-stack"
-    target="_blank"
-  >
-    <img src={Flow} alt="flow" />
-    <span>
-      <strong>Data</strong>
-      Providers and mocking for data libraries
+      <strong>Tabs</strong>
+      Build React Tabs Using Recoil, Styled Components, and Storybook.js
     </span>
   </a>
 </div>
 
-<div className="subheading">Learn</div>
-
+<div className="subheading">Other Articles</div>
 <div className="link-list">
-  <a className="link-item" href="https://storybook.js.org/docs" target="_blank">
-    <img src={Repo} alt="repo" />
+  <a
+    className="link-item"
+    href="https://jenniferfubook.medium.com/jennifer-fus-web-development-publications-1a887e4454af"
+    target="_blank"
+  >
     <span>
-      <strong>Storybook documentation</strong>
-      Configure, customize, and extend
+      <strong>Jennifer Fu’s Web Development Publications</strong>
     </span>
   </a>
-  <a className="link-item" href="https://www.learnstorybook.com" target="_blank">
-    <img src={Direction} alt="direction" />
-    <span>
-      <strong>In-depth guides</strong>
-      Best practices from leading teams
-    </span>
-  </a>
-  <a className="link-item" href="https://github.com/storybookjs/storybook" target="_blank">
-    <img src={Code} alt="code" />
-    <span>
-      <strong>GitHub project</strong>
-      View the source and add issues
-    </span>
-  </a>
-  <a className="link-item" href="https://discord.gg/UUt2PJb" target="_blank">
-    <img src={Comments} alt="comments" />
-    <span>
-      <strong>Discord chat</strong>
-      Chat with maintainers and the community
-    </span>
-  </a>
-</div>
-
-<div className="tip-wrapper">
-  <span className="tip">Tip</span>Edit the Markdown in{' '}
-  <code>src/storybook-examples/welcome.mdx</code>
 </div>

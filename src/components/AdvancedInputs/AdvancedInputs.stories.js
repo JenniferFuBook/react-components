@@ -2,7 +2,7 @@ import React from 'react';
 import { ClearableInput, MultiValueClearableInput } from './index';
 
 const stories = {
-  title: 'Advanced Input Fields',
+  title: 'Components/Advanced Input Fields',
 };
 
 export default stories;

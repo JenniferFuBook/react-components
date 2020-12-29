@@ -4,7 +4,7 @@ import { RecoilRoot } from 'recoil';
 import { Tab, Tabs } from './index';
 
 const stories = {
-  title: 'Tabs',
+  title: 'Components/Tabs',
   decorators: [(storyFn) => <RecoilRoot>{storyFn()}</RecoilRoot>],
 };
 
