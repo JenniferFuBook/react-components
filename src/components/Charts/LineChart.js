@@ -10,7 +10,7 @@ export const LineChart = ({ keys, data, xDomain, yDomain }) => {
   const containerRef = useRef(null);
 
   useLayoutEffect(() => {
-    select('g').selectAll('*').remove();
+    select(containerRef.current).selectAll('*').remove();
 
     const x = scaleLinear()
       .domain(xDomain)
