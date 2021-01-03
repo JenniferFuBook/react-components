@@ -1,5 +1,8 @@
 import { atom } from 'recoil';
 
+/**
+ * It is the default margin setting.
+ */
 const margin = {
   left: 40,
   right: 20,

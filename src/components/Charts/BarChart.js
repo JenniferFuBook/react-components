@@ -1,16 +1,10 @@
 import { useRef, useLayoutEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import {
-  select,
-  scaleBand,
-  scaleLinear,
-  scaleOrdinal,
-  schemeSet1,
-  range,
-} from 'd3';
+import { select, scaleBand, scaleLinear, range } from 'd3';
+import { color } from './constants';
 import { widthAtom, heightAtom, marginAtom } from './chartStates';
 
-export const BarChart = ({ keys, data, xDomain, yDomain }) => {
+export const BarChart = ({ data, xDomain, yDomain }) => {
   const width = useRecoilValue(widthAtom);
   const height = useRecoilValue(heightAtom);
   const { left, right, top, bottom } = useRecoilValue(marginAtom);
@@ -25,10 +19,9 @@ export const BarChart = ({ keys, data, xDomain, yDomain }) => {
     const y = scaleLinear()
       .domain(yDomain)
       .range([height - bottom, top]);
-    const color = scaleOrdinal().domain(keys).range(schemeSet1);
     const barWidth = x.bandwidth() / (data.length + 1);
 
-    data.forEach(([_, ...values], index) => {
+    data.forEach(([name, ...values], index) => {
       select(containerRef.current)
         .append('g')
         .selectAll('rect')
@@ -36,11 +29,21 @@ export const BarChart = ({ keys, data, xDomain, yDomain }) => {
         .join('rect')
         .attr('fill', color(index))
         .attr('x', (_, i) => x(i) + barWidth * index)
-        .attr('y', (d) => y(d))
+        .attr('y', () => y(0))
         .attr('width', barWidth)
-        .attr('height', (d) => y(0) - y(d), 0);
+        .attr('height', 0);
     });
-  }, [bottom, data, height, keys, left, right, top, width, xDomain, yDomain]);
+
+    data.forEach((_, index) => {
+      select(containerRef.current)
+        .selectAll('rect')
+        .transition()
+        .duration(1000)
+        .attr('y', (d) => y(d))
+        .attr('height', (d) => y(0) - y(d))
+        .delay((_, i) => i * 1000 * (index + 1));
+    });
+  }, [bottom, data, height, left, right, top, width, xDomain, yDomain]);
 
   return <g ref={containerRef} />;
 };

@@ -37,28 +37,14 @@ export const Chart = ({ width, height, margin, data }) => {
   return (
     <svg width={width} height={height} viewBox={`0, 0, ${width}, ${height}`}>
       {data.type === 'bar' && (
-        <BarChart
-          keys={keys}
-          data={data.columns}
-          xDomain={xDomain}
-          yDomain={yDomain}
-        />
+        <BarChart data={data.columns} xDomain={xDomain} yDomain={yDomain} />
       )}
       {data.type === 'line' && (
-        <LineChart
-          keys={keys}
-          data={data.columns}
-          xDomain={xDomain}
-          yDomain={yDomain}
-        />
+        <LineChart data={data.columns} xDomain={xDomain} yDomain={yDomain} />
       )}
       <XAxis margin={margin} xDomain={xDomain} tickCount={tickCount} />
       <YAxis margin={margin} yDomain={yDomain} tickCount={5} />
-      <Legend
-        keys={keys}
-        data={data.columns}
-        xDomain={[0, data.columns.length + 1]}
-      />
+      <Legend keys={keys} xDomain={[0, data.columns.length + 1]} />
     </svg>
   );
 };
